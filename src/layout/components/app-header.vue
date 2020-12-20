@@ -1,10 +1,12 @@
 <template>
   <div class="header">
     <el-breadcrumb separator="/">
-      <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item><a href="/">活动管理</a></el-breadcrumb-item>
-      <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-      <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+      <el-breadcrumb-item
+        v-for="item in levelList"
+        :key="item.name"
+        :to="item.path"
+      >{{ item.meta.title }}
+      </el-breadcrumb-item>
     </el-breadcrumb>
     <el-dropdown>
       <span class="el-dropdown-link">
@@ -32,6 +34,19 @@ export default Vue.extend({
   data () {
     return {
       userInfo: {}
+    }
+  },
+  computed: {
+    levelList () {
+      const matched = this.$route.matched.slice(0)
+
+      if (matched[matched.length - 1].name === 'home') {
+        return matched.splice(-1, 1)
+      }
+      return matched.map(route => {
+        route.path = route.path || '/'
+        return route
+      })
     }
   },
   created () {

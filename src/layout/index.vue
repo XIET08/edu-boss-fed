@@ -41,5 +41,7 @@ export default Vue.extend({
 }
 .el-main {
   background: #e9eef3;
+  height: 100vh;
+  overflow: auto;
 }
 </style>

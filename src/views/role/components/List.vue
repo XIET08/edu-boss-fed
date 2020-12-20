@@ -63,7 +63,12 @@
             <el-button
               size="mini"
               type="text"
-              @click="handleDelete(scope.row)">分配资源</el-button>
+              @click="$router.push({
+                name: 'alloc-resource',
+                params: {
+                  roleId: scope.row.id
+                }
+              })">分配资源</el-button>
             <el-button
               size="mini"
               type="text"
@@ -106,7 +111,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import dayjs from 'dayjs'
-import { getRolePages } from '@/services/role'
+import { getRolePages, deleteRole } from '@/services/role'
 import { Form } from 'element-ui'
 import CreateOrEdit from './CreateOrEdit.vue'
 
@@ -155,7 +160,15 @@ export default Vue.extend({
       this.isEdit = true
     },
     handleDelete (item: any) {
-      console.log('handleDelete')
+      this.$confirm('确认删除吗？', '删除提示', {})
+        .then(async () => {
+          await deleteRole(item.id)
+          this.$message.success('删除成功')
+          this.loadRoles()
+        })
+        .catch(() => {
+          this.$message.info('已取消删除')
+        })
     },
     handleSizeChange (val: number) {
       this.form.size = val

@@ -2,9 +2,9 @@
   <div class="course-video">
     <el-card>
       <div slot="header">
-        <span>课程：xxx</span>
-        <span>阶段：xxx</span>
-        <span>课时：xxx</span>
+        <p>课程：xxx</p>
+        <p>阶段：xxx</p>
+        <p>课时：xxx</p>
       </div>
       <el-form label-width="70px">
         <el-form-item label="视频上传">
@@ -100,22 +100,22 @@ export default Vue.extend({
           )
         },
         // 文件上传成功
-        onUploadSucceed: function (uploadInfo: any) {
+        onUploadSucceed: (uploadInfo: any) => {
           console.log('onUploadSucceed', uploadInfo)
         },
         // 文件上传失败
-        onUploadFailed: function (uploadInfo: any, code: any, message: any) {
+        onUploadFailed: (uploadInfo: any, code: any, message: any) => {
           console.log('onUploadFailed', uploadInfo, code, message)
         },
         // 文件上传进度，单位：字节
-        onUploadProgress: function (uploadInfo: any, totalSize: any, loadedPercent: any) {
+        onUploadProgress: (uploadInfo: any, totalSize: any, loadedPercent: any) => {
           console.log('onUploadProgress', uploadInfo, totalSize, loadedPercent)
           if (!uploadInfo.isImage) {
             this.uploadPercent = Math.floor(loadedPercent * 100)
           }
         },
         // 上传凭证超时
-        onUploadTokenExpired: function (uploadInfo: any) {
+        onUploadTokenExpired: (uploadInfo: any) => {
           console.log('onUploadTokenExpired', uploadInfo)
         },
         // 全部文件上传结束
@@ -137,7 +137,7 @@ export default Vue.extend({
               window.clearInterval(timer)
               console.log('转码成功')
             }
-          })
+          }, 3000)
         }
       })
     },

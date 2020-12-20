@@ -1,5 +1,10 @@
 <template>
   <div class="login">
+    <header>
+      <h1>
+        <router-link to="/">Edu boss管理系统</router-link>
+      </h1>
+    </header>
     <el-form
       class="login-form"
       ref="form"
@@ -98,6 +103,18 @@ export default Vue.extend({
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  header {
+    margin-bottom: 20px;
+    a {
+      margin: 0;
+      color: rgba(0,0,0,.5);
+      font-size: 3rem;
+      font-weight: 300;
+      text-decoration: none;
+      transition: text-shadow .3s;
+    }
+  }
   .login-form {
     width: 300px;
     background: #fff;
@@ -107,6 +124,5 @@ export default Vue.extend({
   .login-btn {
     width: 100%;
   }
-
 }
 </style>

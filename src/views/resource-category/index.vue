@@ -1,17 +1,17 @@
 <template>
-  <div class="advert">
-    <advert-list/>
+  <div class="resource">
+    <resource-category-list/>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import AdvertList from './components/List.vue'
+import ResourceCategoryList from './components/List.vue'
 
 export default Vue.extend({
-  name: 'AdvertIndex',
+  name: 'ResourceCategoryIndex',
   components: {
-    AdvertList
+    ResourceCategoryList
   }
 })
 </script>

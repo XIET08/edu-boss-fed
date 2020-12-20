@@ -1,19 +1,18 @@
 <template>
-  <div class="advert">
-    <advert-list/>
+  <div>
+    <create-or-update/>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import AdvertList from './components/List.vue'
+import CreateOrUpdate from './components/CreateOrUpdate.vue'
 
 export default Vue.extend({
-  name: 'AdvertIndex',
-  components: {
-    AdvertList
-  }
+  name: 'CreateAdvert',
+  components: { CreateOrUpdate }
 })
+
 </script>
 
 <style lang="scss" scoped></style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="alloc-menu">
     <el-card>
       <div slot="header">
         <span>分配权限</span>

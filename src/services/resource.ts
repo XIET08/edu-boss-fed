@@ -12,9 +12,42 @@ export const getResourcePages = (data: any) => {
   })
 }
 
-export const getResourceCategories = () => {
+export const getAllResources = () => {
   return request({
     method: 'GET',
-    url: '/boss/resource/category/getAll'
+    url: '/boss/resource/getAll'
+  })
+}
+
+export const getRoleResources = (roleId: string | number) => {
+  return request({
+    method: 'GET',
+    url: '/boss/resource/getRoleResources',
+    params: {
+      roleId
+    }
+  })
+}
+
+export const allocateRoleResources = (data: any) => {
+  return request({
+    method: 'POST',
+    url: '/boss/resource/allocateRoleResources',
+    data
+  })
+}
+
+export const saveOrUpdateResource = (data: any) => {
+  return request({
+    method: 'POST',
+    url: '/boss/resource/saveOrUpdate',
+    data
+  })
+}
+
+export const deleteResource = (id: string | number) => {
+  return request({
+    method: 'DELETE',
+    url: `/boss/resource/${id}`
   })
 }

@@ -35,3 +35,27 @@ export const getUserInfo = () => {
     // }
   })
 }
+
+export const getUserPages = (data: any) => {
+  return request({
+    method: 'POST',
+    url: '/boss/user/getUserPages',
+    data
+  })
+}
+
+export const forbidUser = (data: any) => {
+  return request({
+    method: 'POST',
+    url: '/boss/user/forbidUser',
+    data
+  })
+}
+
+export const enableUser = (data: any) => {
+  return request({
+    method: 'POST',
+    url: '/boss/user/enableUser',
+    data
+  })
+}
